@@ -15,12 +15,13 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-10">
-                <form action="{{ route('companies.update') }}" method="POST" enctype="multipart/form-data">
+                <form method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="col-lg-12">
                             <label for="name">Company Name</label>
-                            <input type="text" name="name" id="name" class="form-control">
+                            <input type="text" name="name" id="name" value="{{ $company->name }}"
+                                class="form-control">
                         </div>
                         <div class="col-lg-12">
                             <label for="email">Company Email</label>
