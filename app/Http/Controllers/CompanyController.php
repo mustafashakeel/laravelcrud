@@ -36,7 +36,14 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'address' => 'required'
+
+        ]);
+        Company::create($request->post());
+        return redirect()->route('companies.index')->with('success', 'Company created successfully.');
     }
 
     /**
@@ -58,7 +65,7 @@ class CompanyController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('company.edit', compact('company'));
     }
 
     /**

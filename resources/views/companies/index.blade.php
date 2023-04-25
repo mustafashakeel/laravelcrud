@@ -37,8 +37,13 @@
                                 <td>{{ $company->email }}</td>
                                 <td>{{ $company->address }}</td>
                                 <td>
-                                    {{-- <a href="{{ route('companies.edit', $company->id) }}" class="btn btn-info">Edit</a>
-                                <a href="{{ route('companies.delete', $company->id) }}" class="btn btn-danger">Delete</a> --}}
+                                    <form action="{{ route('companies.destroy', $company->id) }}">
+
+                                        <a href="{{ route('companies.edit', $company->id) }}"
+                                            class="btn btn-info">Edit</a>
+
+                                        <button class="btn btn-danger">Delete</button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach
