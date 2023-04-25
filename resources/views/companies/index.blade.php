@@ -20,6 +20,7 @@
         </div>
         <div class="row">
             <div class="col-lg-12">
+                <a href="{{ route('companies.create') }}" class="btn btn-info">Add New Company</a>
                 <table class="table table-bordered">
                     <thead>
                         <tr>
