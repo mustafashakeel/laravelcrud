@@ -81,14 +81,14 @@ class CompanyController extends Controller
     public function update(Request $request, Company $company)
     {
 
-        // $request->validate([
-        //     'name' => 'required',
-        //     'email' => 'required',
-        //     'address' => 'required'
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'address' => 'required'
 
-        // ]);
-        // $company->fill($request->post())->save();            // $company->update($request->post());
-        // return redirect()->route('companies.index')->with('success', 'Company updated successfully.');
+        ]);
+        $company->fill($request->post())->save();            // $company->update($request->post());
+        return redirect()->route('companies.index')->with('success', 'Company updated successfully.');
     }
 
     /**

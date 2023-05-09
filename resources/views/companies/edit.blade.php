@@ -15,7 +15,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-10">
-                <form method="POST" enctype="multipart/form-data">
+                <form method="POST" action={{ route('companies.update', $company->id) }} enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="row">
