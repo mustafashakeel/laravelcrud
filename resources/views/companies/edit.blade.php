@@ -17,6 +17,7 @@
             <div class="col-lg-10">
                 <form method="POST" enctype="multipart/form-data">
                     @csrf
+                    @method('PUT')
                     <div class="row">
                         <div class="col-lg-12">
                             <label for="name">Company Name</label>
@@ -25,11 +26,13 @@
                         </div>
                         <div class="col-lg-12">
                             <label for="email">Company Email</label>
-                            <input type="email" name="email" id="email" class="form-control">
+                            <input type="email" name="email" id="email" value="{{ $company->email }}"
+                                class="form-control">
                         </div>
                         <div class="col-lg-12">
                             <label for="address">Company Address</label>
-                            <input type="text" name="address" id="address" class="form-control">
+                            <input type="text" name="address" id="address" value="{{ $company->address }}"
+                                class="form-control">
                         </div>
 
                         <div class="col-lg-12">

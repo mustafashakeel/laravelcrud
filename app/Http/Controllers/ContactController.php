@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Company;
 use Illuminate\Http\Request;
 
-class CompanyController extends Controller
+class ContactController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +13,7 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        $companies =  Company::orderBy('id', 'desc')->paginate(10);
-        return view('companies.index', compact('companies'));
+        //
     }
 
     /**
@@ -25,7 +23,7 @@ class CompanyController extends Controller
      */
     public function create()
     {
-        return view('companies.create');
+        //
     }
 
     /**
@@ -34,19 +32,9 @@ class CompanyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-
-
-
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'address' => 'required'
-
-        ]);
-        Company::create($request->post());
-        return redirect()->route('companies.index')->with('success', 'Company created successfully.');
+        //
     }
 
     /**
@@ -66,9 +54,9 @@ class CompanyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Company $company)
+    public function edit($id)
     {
-        return view('companies.edit', compact('company'));
+        //
     }
 
     /**
@@ -78,17 +66,9 @@ class CompanyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Company $company)
+    public function update(Request $request, $id)
     {
-
-        // $request->validate([
-        //     'name' => 'required',
-        //     'email' => 'required',
-        //     'address' => 'required'
-
-        // ]);
-        // $company->fill($request->post())->save();            // $company->update($request->post());
-        // return redirect()->route('companies.index')->with('success', 'Company updated successfully.');
+        //
     }
 
     /**
