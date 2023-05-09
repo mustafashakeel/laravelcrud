@@ -38,12 +38,14 @@
                                 <td>{{ $company->email }}</td>
                                 <td>{{ $company->address }}</td>
                                 <td>
-                                    <form action="{{ route('companies.destroy', $company->id) }}">
+                                    <form action="{{ route('companies.destroy', $company->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
 
                                         <a href="{{ route('companies.edit', $company->id) }}"
                                             class="btn btn-info">Edit</a>
 
-                                        <button class="btn btn-danger">Delete</button>
+                                        <button class="btn btn-danger" type="submit">Delete</button>
                                     </form>
                                 </td>
                             </tr>

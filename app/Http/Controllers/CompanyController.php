@@ -39,13 +39,16 @@ class CompanyController extends Controller
 
     public function store(Request $request)
     {
+        // Validate the Form
         $request->validate([
             'name' => 'required',
             'email' => 'required',
             'address' => 'required'
 
         ]);
+        // Save the data into database
         Company::create($request->post());
+        // Redirect to the index page with success message
         return redirect()->route('companies.index')->with('success', 'Company created successfully.');
     }
 
@@ -81,13 +84,16 @@ class CompanyController extends Controller
     public function update(Request $request, Company $company)
     {
 
+        // Validate the Form
         $request->validate([
             'name' => 'required',
             'email' => 'required',
             'address' => 'required'
 
         ]);
+        // Save the data into database
         $company->fill($request->post())->save();            // $company->update($request->post());
+        // Redirect to the index page with success message
         return redirect()->route('companies.index')->with('success', 'Company updated successfully.');
     }
 
@@ -97,8 +103,12 @@ class CompanyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Company $company)
     {
-        //
+
+        // Delete the data from database
+        $company->delete();
+        // Redirect to the index page with success message
+        return redirect()->route('companies.index')->with('success', 'Company deleted successfully.');
     }
 }
